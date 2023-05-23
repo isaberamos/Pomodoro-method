@@ -1,6 +1,15 @@
-import { FormContainer, MinutesAmountInput, TaskInput } from "./styles";
+import { FormContainer, MinutesAmountInput, TaskInput } from './styles'
+import { useContext } from 'react'
+import { CyclesContext } from '../../../../contexts/CyclesContext'
+import { useFormContext } from 'react-hook-form'
 
 export function NewCycleForm() {
+  const { activeCycle } = useContext(CyclesContext)
+  const { register } = useFormContext()
+
+  // form é um objeto que vai conter todas as informações e funções para criar o formulário
+  // register adiciona um input no formulário, informando quais são os campos existentes no formulário
+
   return (
     <FormContainer>
       <label htmlFor="label">Vou trabalhar em</label>
@@ -8,10 +17,6 @@ export function NewCycleForm() {
         id="task"
         list="task-suggestions"
         placeholder="nome do seu projeto"
-        /* onChange={(e) => setTask(e.target.value)}
-            // Atualiza o estado até mesmo quando não foi o usuário que atualizou
-            value={task}
-            /* register é uma função que retorna muitos métodos de input do JS, como onBlur(), onChange() */
         {...register('task')}
         disabled={!!activeCycle}
       />

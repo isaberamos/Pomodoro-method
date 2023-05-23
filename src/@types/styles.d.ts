@@ -6,6 +6,6 @@ type ThemeType = typeof defaultTheme
 
 // Cria uma tipagem para o módulo styled-components
 declare module 'styled-components' {
-  // Interface utilizada para setar as propriedades do nosso tema
+  // Interface utilizada para setar as propriedades do tema da aplicação
   export interface DefaultTheme extends ThemeType {}
 }
